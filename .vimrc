@@ -30,7 +30,8 @@ inoremap jk <esc>
 " " Disable Esp key in insert mode
 inoremap <esc> <nop>
 
-" ---- NO DEAD KEYS IN INSERT MODE ----nmap à `a
+" ---- NO DEAD KEYS IN INSERT MODE ----
+nmap à `a
 nmap Á 'A
 nmap À `A
 nmap ç 'c
