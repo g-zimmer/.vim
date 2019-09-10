@@ -17,8 +17,6 @@ nnoremap , ;
 nnoremap ; ,
 " Map jk to ESC in insert mode
 inoremap jk <esc>
-" " Disable Esp key in insert mode
-inoremap <esc> <nop>
 
 " ---- NO DEAD KEYS IN INSERT MODE ----
 nmap à `a
