@@ -11,6 +11,10 @@ set shiftwidth=2 " Set auto indent spacing.
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
