@@ -29,28 +29,7 @@ let &t_te.="\e[0 q"
 " Tauschen von , und ;
 nnoremap , ;
 nnoremap ; ,
-" Map jk to ESC in insert mode
-inoremap jk <esc>
 
-" ---- NO DEAD KEYS IN INSERT MODE ----
-nmap à `a
-nmap Á 'A
-nmap À `A
-nmap ç 'c
-nmap Ç 'C
-nmap é 'e
-nmap è `e
-nmap É 'E
-nmap È `E
-nmap í 'i
-nmap ì `i
-nmap Í 'I
-nmap Ì `I
-nmap ó 'o
-nmap ò `o
-nmap Ó 'O
-nmap Ò `O
-nmap ú 'u
-nmap ù `u
-nmap Ú 'U
-nmap Ù `U
+" jk auf ESC im Insert mode mappen und ESC sperren
+inoremap jk <esc>
+inoremap <esc> <NOP>
