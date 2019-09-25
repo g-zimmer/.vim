@@ -6,7 +6,7 @@ set smartcase " wenn Großbuchstabe enthalten dann case nicht ignorieren in such
 set incsearch " cursor beim tippen zu nächstem suchergebnis springen lassen
 set shiftround " Shift to the next round tab stop. 
 set hlsearch " Highlight search result
-set shiftwidth=2 " Set auto indent spacing.
+set shiftwidth=4 " Set auto indent spacing.
 
 call plug#begin('~/.vim/plugged')
 
@@ -15,6 +15,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'frazrepo/vim-rainbow'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tmhedberg/matchit'
+Plug 'Raimondi/delimitMate'
 
 call plug#end()
 
@@ -33,3 +40,6 @@ nnoremap ; ,
 " jk auf ESC im Insert mode mappen und ESC sperren
 inoremap jk <esc>
 inoremap <esc> <NOP>
+
+" NerdTree
+map <F2> :NERDTreeToggle<CR>
