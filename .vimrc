@@ -43,3 +43,15 @@ inoremap <esc> <NOP>
 
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
+
+" Bessere Bewegungen für EOL/BOL
+nnoremap B ^
+nnoremap E $
+
+" Suchergebnisse in Bildschirmmitte
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
