@@ -22,6 +22,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tmhedberg/matchit'
 Plug 'Raimondi/delimitMate'
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
