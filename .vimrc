@@ -46,7 +46,9 @@ map <F2> :NERDTreeToggle<CR>
 
 " Bessere Bewegungen für EOL/BOL
 nnoremap B ^
+onoremap B ^
 nnoremap E $
+onoremap E $
 
 " Suchergebnisse in Bildschirmmitte
 nnoremap n nzz
