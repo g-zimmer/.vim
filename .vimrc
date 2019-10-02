@@ -40,7 +40,6 @@ nnoremap ; ,
 
 " jk auf ESC im Insert mode mappen und ESC sperren
 inoremap jk <esc>
-inoremap <esc> <NOP>
 
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
