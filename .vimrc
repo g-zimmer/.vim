@@ -38,9 +38,6 @@ let &t_te.="\e[0 q"
 nnoremap , ;
 nnoremap ; ,
 
-" jk auf ESC im Insert mode mappen und ESC sperren
-inoremap jk <esc>
-
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
 
