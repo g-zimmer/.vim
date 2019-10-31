@@ -23,6 +23,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tmhedberg/matchit'
 Plug 'Raimondi/delimitMate'
 Plug 'justinmk/vim-sneak'
+Plug 'wellle/targets.vim'
 
 call plug#end()
 
@@ -41,7 +42,7 @@ nnoremap ; ,
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
 
-" Bessere Bewegungen für EOL/BOL
+" Bessere Motions für EOL/BOL
 nnoremap B ^
 onoremap B ^
 nnoremap E $
@@ -54,3 +55,6 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
+
+" Line-Break im Normal-Mode
+nnoremap K i<CR><Esc>
