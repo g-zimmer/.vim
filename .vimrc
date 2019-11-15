@@ -24,6 +24,7 @@ Plug 'tmhedberg/matchit'
 Plug 'Raimondi/delimitMate'
 Plug 'justinmk/vim-sneak'
 Plug 'wellle/targets.vim'
+Plug 'sjl/badwolf'
 
 call plug#end()
 
