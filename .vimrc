@@ -1,15 +1,18 @@
+" General settings
 set number " zeilen nummern anzeigen
 set relativenumber " relative Zeilen nummern anzeigen
 set showmode " vim modus unten anzeigen
 set ignorecase " case bei suche ignorieren
 set smartcase " wenn Großbuchstabe enthalten dann case nicht ignorieren in suche
 set incsearch " cursor beim tippen zu nächstem suchergebnis springen lassen
-set shiftround " Shift to the next round tab stop. 
+set showmatch " show batching Brackets
 set hlsearch " Highlight search result
+
+" Tabstop-Config
+set shiftround " Shift to the next round tab stop. 
 set shiftwidth=4 " Set auto indent spacing.
 set tabstop=4 " Anzahl Leerzeichen um einen Tabstop darzustellen
 set expandtab " Expand tab to spaces
-set showmatch " show batching Brackets
 
 call plug#begin('~/.vim/plugged')
 
