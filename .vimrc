@@ -33,14 +33,9 @@ Plug 'wellle/targets.vim' " Mehr Text-Objects auf denen man arbeiten kann, z.B. 
 Plug 'vim-scripts/sablecc.vim' " Syntax-Highlighting für SableCC-Grammatiken
 Plug 'sjl/badwolf' " Colorscheme fürs Syntax-Highlighting 
 Plug 'easymotion/vim-easymotion' " Gezielte Cursorbewegungen übere mehrere Zeilen hinweg
-Plug 'nathanaelkane/vim-indent-guides' " Hilfslinien für Einrückungen
 Plug 'kshenoy/vim-signature' " Marks im Gutter anzeigen.
 
 call plug#end()
-
-" Config für Indent-Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
 
 " Blockcursor in CMDER:
 let &t_ti.="\e[1 q"
@@ -67,3 +62,6 @@ nnoremap g# g#zz
 
 " Line-Break in Normal-Mode ohne in Insert-Mode zu gehen
 nnoremap K i<CR><Esc>
+
+" jk auf Esc mappen
+imap jk <Esc>
