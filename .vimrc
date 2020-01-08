@@ -65,3 +65,6 @@ nnoremap K i<CR><Esc>
 
 " jk auf Esc mappen
 imap jk <Esc>
+
+" yank to EOL
+nnoremap Y y$
