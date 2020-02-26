@@ -1,90 +1,94 @@
-" General settings
+" general settings
 syntax on
-set number " zeilen nummern anzeigen
-set relativenumber " relative Zeilen nummern anzeigen
-set showmode " vim modus unten anzeigen
-set ignorecase " case bei suche ignorieren
-set smartcase " wenn Großbuchstabe enthalten dann case nicht ignorieren in suche
-set incsearch " cursor beim tippen zu nächstem suchergebnis springen lassen
-set showmatch " show batching Brackets
-set hlsearch " Highlight search result
-set listchars=space:␣ " Spaces sichtbar machen
-set list " List-Chars anzeigen
+set number " show line numbers
+set relativenumber " show relative line numbers
+set noshowmode " hide vim mode
 set encoding=utf-8 " Default Encoding
 set path+=** " Dateien für File-Autocomplete rekursiv suchen (edit, find, ...)
 set wildmenu " Wildcard-Optionen anzeigen und per Tab auswählen
 set showtabline=1 " Tabline anzeigen
 set hidden " Buffer verstecken anstatt zu schließen
-" Tabstop-Config
-set shiftround " Shift to the next round tab stop. 
-set shiftwidth=4 " Set auto indent spacing.
-set tabstop=4 " Anzahl Leerzeichen um einen Tabstop darzustellen
-set expandtab " Expand tab to spaces
+set listchars=space:·,eol:$ " explicitly show space characters
+set list
+set showmatch " highlight batching brackets
+
+" search settings
+set ignorecase " case sensitive search
+set smartcase " case insensitive search if search string has contains letters
+set incsearch " cursor jumps to next search result
+set hlsearch " highlight search result
+
+" tabstop config
+set shiftround " shift to the next round tab stop
+set shiftwidth=4 " set auto indent spacing.
+set tabstop=4 " amount of space characters for tabstops
+set expandtab " expand tab to spaces
 
 call plug#begin('~/.vim/plugged')
-    Plug 'tpope/vim-surround' " Text-Objects für Klammern, Anführungszeichen etc.
-    Plug 'vim-airline/vim-airline' " Schickere Statusbar
-    Plug 'vim-airline/vim-airline-themes' " Themes für die Airline
-    Plug 'terryma/vim-multiple-cursors' " Mehrere Cursor
-    Plug 'tpope/vim-commentary' " Code-Kommentare togglen
-    Plug 'tpope/vim-fugitive' " Git-Integration
-    Plug 'airblade/vim-gitgutter' " Geänderte Zeilen im Gutter anzeigen
-    Plug 'frazrepo/vim-rainbow' " Zusammen gehörende Klammern einfärben
-    Plug 'scrooloose/nerdtree' " Tree-View für vim
-    Plug 'Xuyuanp/nerdtree-git-plugin' " Git-Änderungen in Tree-View anzeigen
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy-Finder
-    Plug 'tmhedberg/matchit' " Mehr Funktionalität für die %-Motion. (HTML-Tags, If-Then-Else etc.)
-    Plug 'Raimondi/delimitMate' " Automatisches Einfügen schließender Klammern etc
-    Plug 'wellle/targets.vim' " Mehr Text-Objects auf denen man arbeiten kann, z.B. nächste Klammern
-    Plug 'sjl/badwolf' " Colorscheme fürs Syntax-Highlighting 
-    Plug 'easymotion/vim-easymotion' " Gezielte Cursorbewegungen übere mehrere Zeilen hinweg
-    Plug 'kshenoy/vim-signature' " Marks im Gutter anzeigen.
-    Plug 'cj/vim-webdevicons' " Icons für Nerdtree etc.
-    Plug 'yggdroot/indentline' " Hilfslinien für Einrückungen
-    Plug 'godlygeek/tabular' " Text Alignment
-    Plug 'plasticboy/vim-markdown' " Markdown-Plugin für vim
-    Plug 'ycm-core/YouCompleteMe' " Code-Completion
-    Plug 'sheerun/vim-polyglot' " Unterstützung für verschiedene Sprachen
-    Plug 'dense-analysis/ale' " asynchrones Linting
-    Plug 'machakann/vim-highlightedyank' " Yank-Text hervorheben
+    Plug 'tpope/vim-surround' " text objects for surrounding characters like brackets
+    Plug 'vim-airline/vim-airline' " pretty status bar
+    Plug 'vim-airline/vim-airline-themes' " themes for airline
+    Plug 'terryma/vim-multiple-cursors' " multiple cursors
+    Plug 'tpope/vim-commentary' " code comments in vim
+    Plug 'tpope/vim-fugitive' " git integration
+    Plug 'airblade/vim-gitgutter' " show changed git lines
+    Plug 'frazrepo/vim-rainbow' " colored matching brackets
+    Plug 'scrooloose/nerdtree' " tree view
+    Plug 'Xuyuanp/nerdtree-git-plugin' " show changed git files in tree view
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "  uzzy finder
+    Plug 'tmhedberg/matchit' " more matching objects like html-tags for %-motion
+    Plug 'tpope/vim-unimpaired' " more matching objects like html-tags for %-motion
+    Plug 'Raimondi/delimitMate' " auto close brackets
+    Plug 'wellle/targets.vim' " useful text objects
+    Plug 'sjl/badwolf' " a colorscheme
+    Plug 'easymotion/vim-easymotion' " quick cursor movements across lines
+    Plug 'kshenoy/vim-signature' " show marks in gutter
+    Plug 'cj/vim-webdevicons' " icons for NerdTREE
+    Plug 'nathanaelkane/vim-indent-guides' " shows indentation guides
+    Plug 'godlygeek/tabular' " textual table alignment
+    Plug 'plasticboy/vim-markdown' " markdown for vim
+    Plug 'ycm-core/YouCompleteMe' " code completion
+    Plug 'sheerun/vim-polyglot' " support for various languages like JS
+    Plug 'dense-analysis/ale' " asynchronous linting
+    Plug 'machakann/vim-highlightedyank' " highlight yanked text
 call plug#end()
 
-" Colorscheme setzen:
 colorscheme badwolf
 
-" Blockcursor in CMDER:
+" blockcursor in CMDER:
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
-" Rainbow Brackets einschalten
+" Plugin-Settings
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+
 let g:rainbow_active = 1
 
-" Airline Settings
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 
-" ALE Settings
 let g:ale_sign_error = '⚡'
 let g:ale_sign_warning = '⚠️'
 
-" ---- CUSTOM KEY MAPPINGS ----
-" Tauschen von , und ;
+let NERDTreeShowHidden=1
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeGitStatusNodeColorization = 1
+map <F2> :NERDTreeToggle<CR>
+
+map <C-p> :FZF<CR>
+
+" switch , and ; because of german keyboard layout
 nnoremap , ;
 nnoremap ; ,
 
-" NerdTree
-map <F2> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+" center search results
 
-" FZF (Fuzzy Finder)
-map <C-p> :FZF<CR>
-
-" Suchergebnisse in Bildschirmmitte
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -92,26 +96,35 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" Line-Break in Normal-Mode ohne in Insert-Mode zu gehen
+" line break in normal mode
 nnoremap K i<CR><Esc>
 
-" jk auf Esc mappen
+" better Esc mapping
 imap jk <Esc>
 
 " yank to EOL
 nnoremap Y y$
 
-" vereinfachtes Fenster-Management
+" Simplified buffer and split management
 nnoremap <C-Down> <C-W>+
 nnoremap <C-Up> <C-W>-
 nnoremap <C-Right> <C-W>>
 nnoremap <C-Left> <C-W><
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
-" Shortcuts für Methodenstart/-ende
-nnoremap gM [m
-nnoremap gm ]M
+" remapping square brackets because of german keyboard layout
+nmap > [
+nmap < ]
+omap > [
+omap < ]
+xmap > [
+xmap < ]
 
-""" Shortcuts für copy/paste
+" dont override register on replacement of visual selection
+vnoremap p "_dP
+
+""" shortcuts for copy/paste with system clipboard
 nnoremap <C-S-V> <C-V>
 
 " Copy
