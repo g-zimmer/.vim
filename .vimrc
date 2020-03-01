@@ -10,8 +10,6 @@ set listchars=space:·,eol:$ " explicitly show space characters
 set list
 set showmatch " highlight batching brackets
 set nowrap
-set autoindent
-set copyindent
 set autoread " autoread file when changed from outside
 
 " search settings
@@ -20,11 +18,13 @@ set smartcase " case insensitive search if search string has contains letters
 set incsearch " cursor jumps to next search result
 set hlsearch " highlight search result
 
-" tabstop config
+" tabstop and indentation config
 set shiftround " shift to the next round tab stop
 set shiftwidth=4 " set auto indent spacing.
 set tabstop=4 " amount of space characters for tabstops
 set expandtab " expand tab to spaces
+set autoindent
+set copyindent
 
 " line number configuration
 set number " show line numbers
@@ -82,7 +82,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_detect_paste=1
 
 let g:ale_sign_error = '⚡'
 let g:ale_sign_warning = '⚠️'
