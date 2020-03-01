@@ -1,7 +1,5 @@
 " general settings
 syntax on
-set number " show line numbers
-set relativenumber " show relative line numbers
 set noshowmode " hide vim mode
 set encoding=utf-8 " Default Encoding
 set path+=** " Dateien für File-Autocomplete rekursiv suchen (edit, find, ...)
@@ -11,6 +9,10 @@ set hidden " Buffer verstecken anstatt zu schließen
 set listchars=space:·,eol:$ " explicitly show space characters
 set list
 set showmatch " highlight batching brackets
+set nowrap
+set autoindent
+set copyindent
+set autoread " autoread file when changed from outside
 
 " search settings
 set ignorecase " case sensitive search
@@ -23,6 +25,14 @@ set shiftround " shift to the next round tab stop
 set shiftwidth=4 " set auto indent spacing.
 set tabstop=4 " amount of space characters for tabstops
 set expandtab " expand tab to spaces
+
+" line number configuration
+set number " show line numbers
+set relativenumber " show relative line numbers
+autocmd FocusLost * :set norelativenumber number " show absolute number on lost focus
+autocmd FocusGained * :set relativenumber
+autocmd InsertEnter * :set norelativenumber number " Show absolute line number in insert mode
+autocmd InsertLeave * :set relativenumber
 
 call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround' " text objects for surrounding characters like brackets
@@ -72,6 +82,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:airline_detect_paste=1
 
 let g:ale_sign_error = '⚡'
 let g:ale_sign_warning = '⚠️'
