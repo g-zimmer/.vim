@@ -49,6 +49,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tmhedberg/matchit' " more matching objects like html-tags for %-motion
     Plug 'tpope/vim-unimpaired' " more matching objects like html-tags for %-motion
     Plug 'Raimondi/delimitMate' " auto close brackets
+    Plug 'alvan/vim-closetag' " auto close xml tags
     Plug 'wellle/targets.vim' " useful text objects
     Plug 'sjl/badwolf' " a colorscheme
     Plug 'easymotion/vim-easymotion' " quick cursor movements across lines
@@ -93,6 +94,8 @@ map <F2> :NERDTreeToggle<CR>
 
 map <C-p> :FZF<CR>
 
+let g:vim_markdown_folding_disabled = 1
+
 " switch , and ; because of german keyboard layout
 nnoremap , ;
 nnoremap ; ,
@@ -116,10 +119,10 @@ imap jk <Esc>
 nnoremap Y y$
 
 " Simplified buffer and split management
-nnoremap <C-Down> <C-W>+
-nnoremap <C-Up> <C-W>-
-nnoremap <C-Right> <C-W>>
-nnoremap <C-Left> <C-W><
+nnoremap <C-Down> <C-W>5+
+nnoremap <C-Up> <C-W>5-
+nnoremap <C-Right> <C-W>5>
+nnoremap <C-Left> <C-W>5<
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
