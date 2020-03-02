@@ -65,12 +65,6 @@ call plug#end()
 
 colorscheme badwolf
 
-" blockcursor in CMDER:
-let &t_ti.="\e[1 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
-
 " Plugin-Settings
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
