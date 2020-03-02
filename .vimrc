@@ -9,7 +9,6 @@ set hidden " Buffer verstecken anstatt zu schließen
 set listchars=space:·,eol:$ " explicitly show space characters
 set list
 set showmatch " highlight batching brackets
-set nowrap
 set autoread " autoread file when changed from outside
 
 " search settings
@@ -96,9 +95,17 @@ map <C-p> :FZF<CR>
 
 let g:vim_markdown_folding_disabled = 1
 
-" switch , and ; because of german keyboard layout
-nnoremap , ;
-nnoremap ; ,
+" map leader key to space
+nnoremap <Space> <Nop>
+let mapleader = " "
+
+" better mappings on german keyboard
+map ö [
+map ä ]
+map ß /
+map ü <C-]>
+map Ö {
+map Ä }
 
 " center search results
 
@@ -123,19 +130,12 @@ nnoremap <C-Down> <C-W>5+
 nnoremap <C-Up> <C-W>5-
 nnoremap <C-Right> <C-W>5>
 nnoremap <C-Left> <C-W>5<
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
-
-" remapping square brackets because of german keyboard layout
-nmap > [
-nmap < ]
-omap > [
-omap < ]
-xmap > [
-xmap < ]
 
 " dont override register on replacement of visual selection
 vnoremap p "_dP
+
+" reload vimrc
+nnoremap <F5> :so $MYVIMRC<CR>
 
 """ shortcuts for copy/paste with system clipboard
 nnoremap <C-S-V> <C-V>
