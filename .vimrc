@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive' " git integration
     Plug 'airblade/vim-gitgutter' " show changed git lines
     Plug 'frazrepo/vim-rainbow' " colored matching brackets
-    Plug 'scrooloose/nerdtree' " tree view
+    Plug 'preservim/nerdtree' " tree view
     Plug 'Xuyuanp/nerdtree-git-plugin' " show changed git files in tree view
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "  uzzy finder
     Plug 'tmhedberg/matchit' " more matching objects like html-tags for %-motion
