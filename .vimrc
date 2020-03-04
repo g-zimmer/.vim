@@ -1,13 +1,14 @@
 " general settings
 syntax on
-set noshowmode " hide vim mode
-set encoding=utf-8 " Default Encoding
-set path+=** " Dateien für File-Autocomplete rekursiv suchen (edit, find, ...)
-set wildmenu " Wildcard-Optionen anzeigen und per Tab auswählen
-set showtabline=1 " Tabline anzeigen
-set hidden " Buffer verstecken anstatt zu schließen
+set noshowmode " hide vim mode in bottom line
+set encoding=utf-8
+set path+=** " search files recursive for auto completion of severaĺ commands (edit, find, ...)
+set wildmenu " show wildcard options, choose via tab key
+set wildmode=longest,list,full " wildmenu config
+set showtabline=1 " show tabline
+set hidden " hide buffer instead of closing
 set listchars=space:·,eol:$ " explicitly show space characters
-set list
+set list " turn visualization of list chars on
 set showmatch " highlight batching brackets
 set autoread " autoread file when changed from outside
 
@@ -22,8 +23,8 @@ set shiftround " shift to the next round tab stop
 set shiftwidth=4 " set auto indent spacing.
 set tabstop=4 " amount of space characters for tabstops
 set expandtab " expand tab to spaces
-set autoindent
-set copyindent
+set autoindent " copy indent from current line when starting new line
+set copyindent " apply indentation for pasted text
 
 " line number configuration
 set number " show line numbers
