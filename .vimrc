@@ -1,4 +1,4 @@
-" general settings
+﻿" general settings
 syntax on
 set noshowmode " hide vim mode in bottom line
 set encoding=utf-8
@@ -7,10 +7,11 @@ set wildmenu " show wildcard options, choose via tab key
 set wildmode=longest,list,full " wildmenu config
 set showtabline=1 " show tabline
 set hidden " hide buffer instead of closing
-set listchars=space:·,eol:$ " explicitly show space characters
+set listchars=space:· " explicitly show space characters
 set list " turn visualization of list chars on
 set showmatch " highlight batching brackets
 set autoread " autoread file when changed from outside
+set fillchars+=vert:│
 
 " search settings
 set ignorecase " case sensitive search
@@ -25,6 +26,10 @@ set tabstop=4 " amount of space characters for tabstops
 set expandtab " expand tab to spaces
 set autoindent " copy indent from current line when starting new line
 set copyindent " apply indentation for pasted text
+
+" Mouse settings
+set mouse=a
+set ttymouse=sgr
 
 " line number configuration
 set number " show line numbers
@@ -62,6 +67,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot' " support for various languages like JS
     Plug 'dense-analysis/ale' " asynchronous linting
     Plug 'machakann/vim-highlightedyank' " highlight yanked text
+    Plug 'tpope/vim-abolish' " changing cases and more.
 call plug#end()
 
 colorscheme badwolf
@@ -74,7 +80,7 @@ let &t_te.="\e[0 q"
 
 " Plugin-Settings
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
 
 let g:rainbow_active = 1
 
@@ -90,11 +96,14 @@ let g:ale_sign_warning = '⚠️'
 let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeGitStatusNodeColorization = 1
+
 map <F2> :NERDTreeToggle<CR>
 
 map <C-p> :FZF<CR>
 
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 " map leader key to space
 nnoremap <Space> <Nop>
