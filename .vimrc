@@ -91,6 +91,10 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
+" Space as leader
+nnoremap <Space> <Nop>
+let mapleader = " "
+
 " Plugin-Settings
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
@@ -141,7 +145,7 @@ nnoremap g# g#zz
 nnoremap K i<CR><Esc>
 
 " better Esc mapping
-imap <Space> <Esc>
+imap jk <Esc>
 
 " yank to EOL
 nnoremap Y y$
