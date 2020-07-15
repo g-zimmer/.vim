@@ -7,11 +7,15 @@ set wildmenu " show wildcard options, choose via tab key
 set wildmode=longest,list,full " wildmenu config
 set showtabline=1 " show tabline
 set hidden " hide buffer instead of closing
-set listchars=space:· " explicitly show space characters
+" set listchars=space:· " explicitly show space characters
+set showbreak=↪\ 
+set listchars=tab:→\ ,eol:↲,space:·,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set list " turn visualization of list chars on
 set showmatch " highlight batching brackets
 set autoread " autoread file when changed from outside
 set fillchars+=vert:│
+set noswapfile " dont create swap-files on opening files
+set lazyredraw " dont redraw screen for each change on macro execution
 
 " search settings
 set ignorecase " case sensitive search
@@ -29,7 +33,6 @@ set copyindent " apply indentation for pasted text
 
 " Mouse settings
 set mouse=a
-set ttymouse=sgr
 
 " line number configuration
 set number " show line numbers
@@ -40,14 +43,29 @@ autocmd InsertEnter * :set norelativenumber number " Show absolute line number i
 autocmd InsertLeave * :set relativenumber
 
 call plug#begin('~/.vim/plugged')
+" text objects
     Plug 'tpope/vim-surround' " text objects for surrounding characters like brackets
+    Plug 'kana/vim-textobj-user' " simplify custom text object creation
+    Plug 'kana/vim-textobj-line' " text objects for current line (il/al)
+    Plug 'kana/vim-textobj-function' " text objects for functions (if, af, iF, aF)
+    Plug 'Julian/vim-textobj-variable-segment' " text objects for camel humps (iv/av)
+    Plug 'wellle/targets.vim' " useful text objects
+" UI
     Plug 'vim-airline/vim-airline' " pretty status bar
     Plug 'vim-airline/vim-airline-themes' " themes for airline
-    Plug 'terryma/vim-multiple-cursors' " multiple cursors
-    Plug 'tpope/vim-commentary' " code comments in vim
-    Plug 'tpope/vim-fugitive' " git integration
     Plug 'airblade/vim-gitgutter' " show changed git lines
+    Plug 'terryma/vim-multiple-cursors' " multiple cursors
+    Plug 'sjl/badwolf' " a colorscheme
+    Plug 'cj/vim-webdevicons' " icons for NerdTREE
+" languages
     Plug 'frazrepo/vim-rainbow' " colored matching brackets
+    Plug 'sheerun/vim-polyglot' " support for various languages like JS
+    Plug 'dense-analysis/ale' " asynchronous linting
+    Plug 'tpope/vim-commentary' " code comments in vim
+    Plug 'plasticboy/vim-markdown' " markdown for vim
+    Plug 'ycm-core/YouCompleteMe' " code completion
+" utils
+    Plug 'tpope/vim-fugitive' " git integration
     Plug 'preservim/nerdtree' " tree view
     Plug 'Xuyuanp/nerdtree-git-plugin' " show changed git files in tree view
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "  uzzy finder
@@ -55,19 +73,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-unimpaired' " more matching objects like html-tags for %-motion
     Plug 'Raimondi/delimitMate' " auto close brackets
     Plug 'alvan/vim-closetag' " auto close xml tags
-    Plug 'wellle/targets.vim' " useful text objects
-    Plug 'sjl/badwolf' " a colorscheme
     Plug 'easymotion/vim-easymotion' " quick cursor movements across lines
     Plug 'kshenoy/vim-signature' " show marks in gutter
-    Plug 'cj/vim-webdevicons' " icons for NerdTREE
     Plug 'nathanaelkane/vim-indent-guides' " shows indentation guides
     Plug 'godlygeek/tabular' " textual table alignment
-    Plug 'plasticboy/vim-markdown' " markdown for vim
-    Plug 'ycm-core/YouCompleteMe' " code completion
-    Plug 'sheerun/vim-polyglot' " support for various languages like JS
-    Plug 'dense-analysis/ale' " asynchronous linting
     Plug 'machakann/vim-highlightedyank' " highlight yanked text
     Plug 'tpope/vim-abolish' " changing cases and more.
+    Plug 'tommcdo/vim-exchange' " swapping text
+    Plug 'thinca/vim-visualstar' " search for visually selected text via */#
 call plug#end()
 
 colorscheme badwolf
@@ -105,9 +118,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_new_list_item_indent = 0
 
-" map leader key to space
-nnoremap <Space> <Nop>
-let mapleader = " "
+let g:closetag_filenames = '*.html,*.xml'
 
 " better mappings on german keyboard
 map ö [
@@ -130,7 +141,7 @@ nnoremap g# g#zz
 nnoremap K i<CR><Esc>
 
 " better Esc mapping
-imap jk <Esc>
+imap <Space> <Esc>
 
 " yank to EOL
 nnoremap Y y$
