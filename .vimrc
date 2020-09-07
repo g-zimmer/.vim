@@ -50,6 +50,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'kana/vim-textobj-function' " text objects for functions (if, af, iF, aF)
     Plug 'Julian/vim-textobj-variable-segment' " text objects for camel humps (iv/av)
     Plug 'wellle/targets.vim' " useful text objects
+    Plug 'bkad/CamelCaseMotion' " motions to move over camel humps
 " UI
     Plug 'vim-airline/vim-airline' " pretty status bar
     Plug 'vim-airline/vim-airline-themes' " themes for airline
@@ -73,7 +74,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-unimpaired' " more matching objects like html-tags for %-motion
     Plug 'Raimondi/delimitMate' " auto close brackets
     Plug 'alvan/vim-closetag' " auto close xml tags
-    Plug 'easymotion/vim-easymotion' " quick cursor movements across lines
     Plug 'kshenoy/vim-signature' " show marks in gutter
     Plug 'nathanaelkane/vim-indent-guides' " shows indentation guides
     Plug 'godlygeek/tabular' " textual table alignment
@@ -123,6 +123,19 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_new_list_item_indent = 0
 
 let g:closetag_filenames = '*.html,*.xml'
+
+" mappings for CameCaseMotion plugin
+map <silent> W <Plug>CamelCaseMotion_w
+map <silent> B <Plug>CamelCaseMotion_b
+map <silent> E <Plug>CamelCaseMotion_e
+map <silent> gE <Plug>CamelCaseMotion_ge
+
+omap <silent> iW <Plug>CamelCaseMotion_iw
+xmap <silent> iW <Plug>CamelCaseMotion_iw
+omap <silent> iB <Plug>CamelCaseMotion_ib
+xmap <silent> iB <Plug>CamelCaseMotion_ib
+omap <silent> iE <Plug>CamelCaseMotion_ie
+xmap <silent> iE <Plug>CamelCaseMotion_ie
 
 " better mappings on german keyboard
 map ö [
